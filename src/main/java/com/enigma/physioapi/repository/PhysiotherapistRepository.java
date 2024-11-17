@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface PhysiotherapistRepository extends JpaRepository<Physiotherapist, String> {
-  @Query(value = "SELECT * FROM physiotherapist WHERE specialization = :specialization", nativeQuery = true)
+  @Query(value = "SELECT * FROM m_physiotherapist WHERE specialization = :specialization", nativeQuery = true)
   List<Physiotherapist> findBySpecialization(@Param("specialization") String specialization);
 }

@@ -11,10 +11,10 @@ import java.util.Optional;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, String> {
-  @Query(value = "SELECT * FROM patient WHERE email = :email", nativeQuery = true)
+  @Query(value = "SELECT * FROM m_patient WHERE email = :email", nativeQuery = true)
   Optional<Patient> findByEmail(@Param("email") String email);
 
-  @Query(value = "SELECT * FROM patient WHERE name LIKE %:name%", nativeQuery = true)
+  @Query(value = "SELECT * FROM m_patient WHERE name LIKE %:name%", nativeQuery = true)
   List<Patient> findByNameContaining(@Param("name") String name);
 
 }

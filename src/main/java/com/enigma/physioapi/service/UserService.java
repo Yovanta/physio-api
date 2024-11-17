@@ -4,11 +4,12 @@ import com.enigma.physioapi.dto.request.UserAccountRequest;
 import com.enigma.physioapi.dto.request.UserUpdatePasswordRequest;
 import com.enigma.physioapi.dto.response.UserAccountResponse;
 import com.enigma.physioapi.entity.UserAccount;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
   UserAccountResponse create(UserAccountRequest request);
 
   UserAccount create(UserAccount userAccount);
@@ -20,5 +21,7 @@ public interface UserService {
   UserAccountResponse getAuthentication();
 
   void updatePassword(String id, UserUpdatePasswordRequest request);
+
+  UserDetails loadUserByUsername(String username);
 
 }

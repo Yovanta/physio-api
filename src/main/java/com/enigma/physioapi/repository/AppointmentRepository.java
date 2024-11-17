@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, String> {
-  @Query(value = "SELECT * FROM appointments WHERE physiotherapist_id = :physiotherapistId AND appointment_date = :date", nativeQuery = true)
+  @Query(value = "SELECT * FROM m_appointments WHERE physiotherapist_id = :physiotherapistId AND appointment_date = :date", nativeQuery = true)
   List<Appointment> findAppointmentsByPhysiotherapistAndDate(@Param("physiotherapistId") String physiotherapistId,
                                                              @Param("date") LocalDateTime date);
 }
